@@ -1,61 +1,50 @@
 #include <iostream>
 using namespace std;
-class HinhChuNhat
+class NhanVat
 {
-private:
-    float chieuDai, chieuRong;
+protected:
+    string ten;
+    int mau;
 
 public:
-    HinhChuNhat(float dai, float rong)
+    NhanVat(string ten, int mau)
     {
-        chieuDai = dai;
-        chieuRong = rong;
+        this->ten = ten;
+        this->mau = mau;
     }
-    void setChieuDai(float dainew)
+    void tanCong()
     {
-        if (dainew >= 0)
-        {
-            chieuDai = dainew;
-        }
-        else
-        {
-            cout << "Loi. Chieu dai khong am";
-        }
+        cout << ten << " tan cong thuong" << endl;
     }
-    void setChieuRong(float rongnew)
+};
+class KiemSu : public NhanVat
+{
+public:
+    KiemSu(string ten, int mau) : NhanVat(ten, mau)
     {
-        if (rongnew >= 0)
-        {
-            chieuRong = rongnew;
-        }
-        else
-        {
-            cout << "Loi. Chieu rong khong am";
-        }
     }
-    float tinhDienTich()
+    void tanCong()
     {
-        return chieuDai * chieuRong;
+        cout << ten << " hp " << mau << " chem kiem -50 sat thuong" << endl;
     }
-    float tinhChuVi()
+};
+class PhapSu : public NhanVat
+{
+public:
+    PhapSu(string ten, int mau) : NhanVat(ten, mau)
     {
-        return 2 * (chieuDai + chieuRong);
     }
-    void xuat()
+    void tanCong()
     {
-        cout << "Chieu dai: " << chieuDai << endl;
-        cout << "Chieu rong: " << chieuRong << endl;
+        cout << ten << " hp " << mau << " niem chu -80 sat thuong" << endl;
     }
 };
 int main()
 {
-    HinhChuNhat hcn1(2, 3);
-    hcn1.xuat();
-    cout << "Dien tich :" << hcn1.tinhDienTich() << endl;
-    cout << "Chu Vi: " << hcn1.tinhChuVi() << endl;
-    HinhChuNhat hcn2(3, 4);
-    hcn2.xuat();
-    cout << "Dien tich :" << hcn2.tinhDienTich() << endl;
-    cout << "Chu Vi: " << hcn2.tinhChuVi() << endl;
-    return 0;
+    NhanVat nv("Dan lang", 100);
+    nv.tanCong();
+    KiemSu ks("Kiem Su", 500);
+    ks.tanCong();
+    PhapSu ps("Phap Su", 200);
+    ps.tanCong();
 }

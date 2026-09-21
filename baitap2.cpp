@@ -1,68 +1,52 @@
 #include <iostream>
 using namespace std;
-class TaiKhoanNganHang
+class TaiLieu
 {
-private:
-    long long soTaiKhoan;
-    double soDu;
-    string chuTaikhoan;
+protected:
+    string tieuDe;
+    int songaymuon;
 
 public:
-    TaiKhoanNganHang()
+    TaiLieu(string tieuDe, int songaymuon)
     {
-        soTaiKhoan = 106250073;
-        soDu = 10000;
-        chuTaikhoan = "Nguyen Chi Huy";
+        this->tieuDe = tieuDe;
+        this->songaymuon = songaymuon;
     }
-    double napTien(double soTien)
+    float tinhPhi()
     {
-        cout << "so tien nap vao: ";
-        cin >> soTien;
-        if (soTien >= 0)
-        {
-            return soDu += soTien;
-        }
+        return 0;
+    }
+};
+class Sach : public TaiLieu
+{
+    public:
+    Sach(string tieuDe, int songaymuon) : TaiLieu(tieuDe, songaymuon)
+    {
+    }
+    float tinhPhi()
+    {
+        return songaymuon * 2000;
+    }
+};
+class TapChi : public TaiLieu
+{
+    public:
+    TapChi(string tieuDe, int songaymuon) : TaiLieu(tieuDe, songaymuon)
+    {
+    }
+    float tinhPhi()
+    {
+        if(songaymuon <=7)
+            return songaymuon * 3000;
         else
-        {
-            cout << "Loi.So tien nap vao phai duong"<< endl;
-        }
-    }
-    double rutTien(double soTien)
-    {
-        cout << "so tien can rut: ";
-        cin >> soTien;
-        if (soTien <= soDu)
-        {
-            return soDu = soDu - soTien;
-        }
-        else
-        {
-            cout << "Loi.So du khong du"<< endl;
-        }
-    }
-    double getSoDu(double du)
-    {
-        return soDu = du;
-    }
-    void xuat()
-    {
-        cout << "So tai khoan: " << soTaiKhoan << endl;
-        cout << "Chu tai khoan: " << chuTaikhoan << endl;
-        cout << "So du hien tai: " << soDu << endl;
-    }
-    void soDuHienTai()
-    {
-        cout << "So du hien tai: " << soDu << endl;
+        return songaymuon * 5000;
     }
 };
 int main()
 {
-    TaiKhoanNganHang tk1;
-    tk1.xuat();
-    tk1.napTien(1000);
-    tk1.soDuHienTai();
-    tk1.rutTien(500);
-    tk1.soDuHienTai();
-
+TapChi tc("Tap Chi A", 8);
+Sach s("Sach A", 3);
+cout << "Phi muon Tap Chi: " << tc.tinhPhi() << endl;
+cout << "Phi muon Sach: " << s.tinhPhi() << endl;
     return 0;
 }

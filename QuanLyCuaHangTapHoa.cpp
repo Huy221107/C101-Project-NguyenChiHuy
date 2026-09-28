@@ -4,7 +4,6 @@
 #include <iomanip>   // setw, fixed, setprecision
 #include <fstream>   // đọc/ghi file
 #include <windows.h>
-#include <stdexcept>
 using namespace std;
 class SanPham
 {
@@ -41,7 +40,7 @@ public:
         cout << "Nhập mã: ";
         cin >> ma;
 
-        cout << "Nhâjp tên: ";
+        cout << "Nhập tên: ";
         cin.ignore();
         getline(cin, ten);
 
@@ -51,7 +50,6 @@ public:
         cout << "Nhập số lượng: ";
         cin >> soLuong;
     }
-
     void themMoiSanPham()
     {
         ofstream themFile("sanpham.txt", ios::app);
@@ -72,7 +70,6 @@ public:
 
         cout << "Đã lưu sản phẩm vào file!" << endl;
     }
-
     void hienThiDanhSach()
     {
         ifstream xuatFile("sanpham.txt");
@@ -169,8 +166,6 @@ public:
             }
 
             fileDoc.close();
-
-            // Sắp xếp mã sản phẩm từ bé đến lớn
             for (int i = 0; i < soLuongSanPham - 1; i++)
             {
                 for (int j = i + 1; j < soLuongSanPham; j++)
@@ -211,11 +206,11 @@ public:
             cout << "Đã sắp xếp sản phẩm theo mã tăng dần!\n";
         }
     }
-    void thongKe()
+   void thongKe()
 {
-    ifstream file("sanpham.txt");
+    ifstream thongKe("sanpham.txt");
 
-    if (!file.is_open())
+    if (!thongKe.is_open())
     {
         cout << "Không mở được file sanpham.txt!\n";
         return;
@@ -226,7 +221,7 @@ public:
     long long tongSoLuong = 0;
     long long tongGiaTri = 0;
 
-    while (getline(file, dong))
+    while (getline(thongKe, dong))
     {
         if (dong.empty())
         {
@@ -262,53 +257,13 @@ public:
         tongGiaTri += gia * soLuongSanPham;
     }
 
-    file.close();
+    thongKe.close();
 
     cout << "\n===== THỐNG KÊ SẢN PHẨM =====\n";
     cout << "Tổng số loại sản phẩm: " << tongLoaiSanPham << endl;
     cout << "Tổng số lượng sản phẩm: " << tongSoLuong << endl;
-    cout << "Tổng giá trị hàng tồn kho: "
-         << tongGiaTri << " đồng\n";
+    cout << "Tổng giá trị hàng tồn kho: " << tongGiaTri << " đồng\n";
 }
-    {
-        int tongLoaiSanPham = 0;
-        long long tongSoLuong = 0;
-        long double tongGiaTri = 0;
-
-        while (getline(file, dong))
-        {
-            if (dong.empty())
-            {
-                continue;
-            }
-
-            string ma, ten, donGia, soLuong;
-            stringstream ss(dong);
-
-            getline(ss, ma, '|');
-            getline(ss, ten, '|');
-            getline(ss, donGia, '|');
-            getline(ss, soLuong, '|');
-
-            try
-            {
-                long double gia = stold(donGia);
-                long long soLuongSanPham = stoll(soLuong);
-
-                tongLoaiSanPham++;
-                tongSoLuong += soLuongSanPham;
-                tongGiaTri += gia * soLuongSanPham;
-            }
-            catch (const invalid_argument &loi)
-            {
-                cout << "Dữ liệu không hợp lệ: " << dong << endl;
-            }
-            catch (const out_of_range &loi)
-            {
-                cout << "Số quá lớn: " << dong << endl;
-            }
-        }
-    }
 };
 int main()
 {

@@ -1,4 +1,4 @@
-SP001|Gạo|15000|20
+SP001|Máy tính đếm ngược cân 2-300m bài khó|999999|20
 SP002|Sữa tươi|12000|30
 SP003|Nước mắm 750ml|38000|18
 SP004|Đường trắng 1kg|22000|25
@@ -28,3 +28,6 @@ SP027|Khăn mặt cotton|25000|20
 SP028|Màng bọc thực phẩm|32000|15
 SP029|Túi rác tự hủy (kg)|40000|12
 SP030|Xà phòng thơm|16000|25
+SP031|Gạo|2000|20
+SP032|Rượu|20000|20
+SP033|Kiếm|30000|20

@@ -1,0 +1,16 @@
+===== HOA DON =====
+Thoi gian: 2026-09-29 22:52:18
+Hinh thuc thanh toan: Góp 1
+Ma SP | Ten san pham | So luong | Don gia | Thanh tien
+SP000 | Da Báo | 1 | 10000 | 10000
+Tong tien: 10000 VNĐ
+==================
+
+===== HOA DON =====
+Thoi gian: 2026-09-29 22:52:57
+Hinh thuc thanh toan: Góp 1
+Ma SP | Ten san pham | So luong | Don gia | Thanh tien
+SP001 | Máy tính đếm ngược cân 2-300m bài khó | 4 | 999999 | 3999996
+Tong tien: 3999996 VNĐ
+==================
+

@@ -1,42 +1,44 @@
 # Chương trình quản lý cửa hàng tạp hóa
 
-Chương trình console viết bằng C++, dùng lớp `SanPham` để quản lý danh sách sản phẩm của cửa hàng. Dữ liệu được lưu trong file văn bản `sanpham.txt`.
+Ứng dụng desktop C++ dùng SFML 2.6 để quản lý sản phẩm và bán hàng. Thông tin sản phẩm được lưu trong `sanpham.txt`; mỗi hóa đơn đã thanh toán được ghi nối tiếp vào `hoadon.txt`.
 
 ## Chức năng
 
-Chọn chức năng từ menu:
-
-| Lựa chọn | Chức năng |
-| --- | --- |
-| 1 | Nhập và thêm sản phẩm mới vào file |
-| 2 | Hiển thị nội dung danh sách sản phẩm |
-| 3 | Tìm sản phẩm theo chính xác mã hoặc tên |
-| 4 | Sắp xếp sản phẩm theo mã tăng dần |
-| 5 | Thống kê số loại sản phẩm, tổng số lượng và tổng giá trị tồn kho |
-| 0 | Thoát chương trình |
+- Thêm sản phẩm, tìm kiếm theo mã hoặc tên, xem danh sách và sắp xếp theo mã.
+- Danh sách sản phẩm hiển thị theo từng trang vừa khung; dùng con lăn chuột để xem các dòng tiếp theo.
+- Tạo một hóa đơn gồm nhiều mặt hàng, nhập số lượng cho từng mặt hàng và kiểm tra tồn kho khi thêm vào giỏ cũng như trước khi thanh toán.
+- Khi bán hàng, tìm sản phẩm bằng mã hoặc tên; các kết quả phù hợp hiện thành gợi ý để chọn khi có nhiều sản phẩm trùng từ khóa.
+- Khi thanh toán thành công, cập nhật tồn kho, hiển thị hóa đơn có tổng tiền và lưu hóa đơn vào `hoadon.txt`.
+- Cảnh báo sản phẩm sắp hết khi tồn kho dưới 5, trên danh sách và ở màn hình thống kê.
+- Thống kê tổng số sản phẩm, tổng tồn kho, giá trị tồn kho và doanh thu cộng dồn trong phiên ứng dụng hiện tại.
 
 ## Yêu cầu
 
 - Windows
-- Trình biên dịch C++ hỗ trợ C++11, chẳng hạn MinGW g++
-- Lưu mã nguồn bằng mã hóa UTF-8 để hiển thị tiếng Việt
+- SFML 2.6.1
+- MinGW-w64 GCC 13.1 tương thích với gói SFML đã cài
+- Phông Arial tại `C:\Windows\Fonts\arial.ttf`
 
-Chương trình dùng `windows.h` để đặt bảng mã console UTF-8 nên không được thiết kế để biên dịch nguyên trạng trên các hệ điều hành không phải Windows.
+Mã nguồn và dữ liệu văn bản sử dụng UTF-8. Tệp `tasks.json` của VS Code đã cấu hình đường dẫn compiler và SFML trong môi trường phát triển hiện tại.
 
 ## Biên dịch và chạy
 
-Mở Terminal tại thư mục chứa `QuanLyCuaHangTapHoa.cpp`, sau đó chạy:
+Trong VS Code, mở `QuanLyCuaHangTapHoa.cpp` và chạy tác vụ **C/C++: g++.exe build active file**. Có thể biên dịch từ PowerShell bằng:
 
 ```powershell
-g++ -std=c++11 QuanLyCuaHangTapHoa.cpp -o QuanLyCuaHangTapHoa.exe
-.\QuanLyCuaHangTapHoa.exe
+& "D:\Downloads\winlibs-x86_64-mcf-seh-gcc-13.1.0-msvcrt-r5\mingw64\bin\g++.exe" `
+  -std=c++11 -finput-charset=UTF-8 -fexec-charset=UTF-8 `
+  -IC:\bao\sfml\SFML-2.6.1\include `
+  -LC:\bao\sfml\SFML-2.6.1\lib `
+  .\QuanLyCuaHangTapHoa.cpp -o .\QuanLyCuaHangTapHoa.exe `
+  -lsfml-graphics -lsfml-window -lsfml-system
 ```
 
-Nếu dùng VS Code, có thể mở thư mục dự án và chạy tác vụ build C++ đã cấu hình trong `.vscode/tasks.json`.
+Đảm bảo các DLL của SFML nằm trong `PATH` hoặc cạnh tệp `.exe` khi chạy.
 
-## File dữ liệu
+## Tệp dữ liệu
 
-Chương trình đọc và ghi `sanpham.txt` trong thư mục làm việc hiện tại. Mỗi sản phẩm nằm trên một dòng, các trường được phân cách bằng dấu `|`:
+Mỗi sản phẩm trong `sanpham.txt` nằm trên một dòng, theo định dạng:
 
 ```text
 MaSanPham|TenSanPham|DonGia|SoLuong
@@ -49,13 +51,4 @@ SP001|Gạo|15000|20
 SP002|Sữa tươi|12000|30
 ```
 
-Trong đó, đơn giá và số lượng cần nhập dưới dạng số để chức năng thống kê có thể tính tổng giá trị tồn kho (`đơn giá × số lượng`). Tên sản phẩm có thể chứa dấu cách và tiếng Việt có dấu; không dùng dấu `|` trong các trường dữ liệu vì đây là ký tự phân cách.
-
-Khi thêm sản phẩm, chương trình ghi nối tiếp vào file. Nếu `sanpham.txt` chưa tồn tại, hãy tạo file trong thư mục chạy chương trình; thao tác thêm cũng có thể tạo file khi mở thành công.
-
-## Lưu ý
-
-- Chức năng sắp xếp hiện đọc tối đa 100 dòng sản phẩm.
-- Tìm kiếm yêu cầu mã hoặc tên khớp chính xác, có phân biệt chữ hoa/chữ thường.
-- Mã được sắp xếp theo thứ tự ký tự; nên dùng mã có độ dài số đồng nhất, ví dụ `SP001`, `SP002`, `SP010`.
-- Mã nguồn sử dụng `stringstream` để đọc và tách dữ liệu, vì vậy cần có dòng `#include <sstream>` cùng các thư viện đầu chương trình.
+Không dùng ký tự `|` trong mã hoặc tên vì đây là ký tự phân cách. Doanh thu phiên làm việc chỉ được giữ trong bộ nhớ và bắt đầu lại từ 0 khi khởi động lại ứng dụng; lịch sử các hóa đơn vẫn được lưu trong `hoadon.txt`.

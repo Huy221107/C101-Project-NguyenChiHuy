@@ -1,33 +1,35 @@
-SP001|Máy tính đếm ngược cân 2-300m bài khó|999999|20
-SP002|Sữa tươi|12000|30
-SP003|Nước mắm 750ml|38000|18
-SP004|Đường trắng 1kg|22000|25
-SP005|Dầu ăn 1L|45000|15
-SP006|Mì tôm|5000|50
-SP007|Bột ngọt 450g|30000|12
-SP008|Muối i-ốt 500g|5000|40
-SP009|Trứng gà (chục)|32000|25
-SP010|Cà phê hòa tan|58000|10
-SP011|Trà xanh đóng chai|10000|48
-SP012|Bánh quy bơ|42000|15
-SP013|Nước rửa chén 800ml|33000|20
-SP014|Bột giặt 3kg|135000|8
-SP015|Kem đánh răng|28000|22
-SP016|Nước lau nhà 1L|29000|15
-SP017|Khăn giấy rút|18000|30
-SP018|Giấy vệ sinh (lốc)|65000|10
-SP019|Dầu gội đầu 650g|120000|6
-SP020|Sữa tắm 500ml|95000|8
-SP021|Bàn chải đánh răng|15000|25
-SP022|Nước xả vải 1.5L|92000|10
-SP023|Tương ớt 250g|14000|20
-SP024|Hạt nêm 400g|35000|15
-SP025|Ngũ cốc dinh dưỡng|68000|12
-SP026|Nước suối (lốc)|45000|10
-SP027|Khăn mặt cotton|25000|20
-SP028|Màng bọc thực phẩm|32000|15
-SP029|Túi rác tự hủy (kg)|40000|12
-SP030|Xà phòng thơm|16000|25
-SP031|Gạo|2000|20
-SP032|Rượu|20000|20
-SP033|Kiếm|30000|20
+SP000|Da Báo|10000.00|10
+SP001|Máy tính đếm ngược cân 2-300m bài khó|999999.00|20
+SP002|Sữa tươi|12000.00|30
+SP003|Nước mắm 750ml|38000.00|18
+SP004|Đường trắng 1kg|22000.00|25
+SP005|Dầu ăn 1L|45000.00|15
+SP006|Mì tôm|5000.00|50
+SP007|Bột ngọt 450g|30000.00|12
+SP008|Muối i-ốt 500g|5000.00|40
+SP009|Trứng gà (chục)|32000.00|25
+SP010|Cà phê hòa tan|58000.00|10
+SP011|Trà xanh đóng chai|10000.00|48
+SP012|Bánh quy bơ|42000.00|15
+SP013|Nước rửa chén 800ml|33000.00|20
+SP014|Bột giặt 3kg|135000.00|8
+SP015|Kem đánh răng|28000.00|22
+SP016|Nước lau nhà 1L|29000.00|15
+SP017|Khăn giấy rút|18000.00|30
+SP018|Giấy vệ sinh (lốc)|65000.00|10
+SP019|Dầu gội đầu 650g|120000.00|6
+SP020|Sữa tắm 500ml|95000.00|8
+SP021|Bàn chải đánh răng|15000.00|25
+SP022|Nước xả vải 1.5L|92000.00|10
+SP023|Tương ớt 250g|14000.00|20
+SP024|Hạt nêm 400g|35000.00|15
+SP025|Ngũ cốc dinh dưỡng|68000.00|12
+SP026|Nước suối (lốc)|45000.00|10
+SP027|Khăn mặt cotton|25000.00|20
+SP028|Màng bọc thực phẩm|32000.00|15
+SP029|Túi rác tự hủy (kg)|40000.00|12
+SP030|Xà phòng thơm|16000.00|25
+SP031|Gạo|2000.00|20
+SP032|Rượu|20000.00|20
+SP033|Kiếm|30000.00|20
+SP034|Sữa|70000.00|9

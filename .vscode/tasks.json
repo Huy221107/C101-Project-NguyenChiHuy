@@ -3,16 +3,27 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\MinGW\\bin\\g++.exe",
+            "command": "D:\\Downloads\\winlibs-x86_64-mcf-seh-gcc-13.1.0-msvcrt-r5\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-std=c++11",
+                "-finput-charset=UTF-8",
+                "-fexec-charset=UTF-8",
+                "-IC:\\bao\\sfml\\SFML-2.6.1\\include",
+                "-LC:\\bao\\sfml\\SFML-2.6.1\\lib",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}",
+                "env": {
+                    "PATH": "D:\\Downloads\\winlibs-x86_64-mcf-seh-gcc-13.1.0-msvcrt-r5\\mingw64\\bin;C:\\bao\\sfml\\SFML-2.6.1\\bin;${env:PATH}"
+                }
             },
             "problemMatcher": [
                 "$gcc"
